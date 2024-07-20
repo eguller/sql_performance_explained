@@ -68,6 +68,9 @@ def main():
     createWithIndex()
     fillTable("employees_with_index", ROW_COUNT)
 
+    # This example is obvious query finds matching rows faster when index is used.
+    # Without index database uses table scan to find matching rows which is much slower than 
+    # index in this case.
     averageTimeEmployeesWithoutIndex = averageQueryTime("employees_without_index")
     print(f"Average time employees_without_index: {averageTimeEmployeesWithoutIndex}")
 

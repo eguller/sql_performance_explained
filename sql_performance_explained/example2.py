@@ -74,6 +74,11 @@ def main():
     createWithIndexSubsidiaryIdFirst()
     fillTable("employees_with_subsidiary_id_first_index", ROW_COUNT)
 
+    # second query should perform better than first one in average.
+    # In first query database uses table scan to find matching subsidiary id
+    # In second query index is used. 
+    # Query performance gets larger when subsidiary id range gets larger, because 
+    # more rows have to be scanned to find a matching one.
     averageTimeEmployeesEmployeeIdFirstIndex = averageQueryTime("employees_with_employee_id_first_index")
     print(f"Average time employee id first index: {averageTimeEmployeesEmployeeIdFirstIndex}")
 
